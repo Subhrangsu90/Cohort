@@ -32,10 +32,10 @@ Resume_Subhrangsu/
 
 ## 📷 Screenshots
 
-![Resume Homepage Screenshot](Resume_Subhrangsu/screenshot.png)
+![Resume Homepage Screenshot](https://github.com/Subhrangsu90/Cohort/blob/resume-portfolio/Resume_Subhrangsu/screenshot.png)
 
 🎥 **Demo Video:**  
-[Click here to watch the demo](Resume_Subhrangsu/demo.webm)
+[Click here to watch the demo](https://github.com/Subhrangsu90/Cohort/blob/resume-portfolio/Resume_Subhrangsu/demo.webm)
 
 ## 📌 Setup Instructions
 
@@ -44,7 +44,3 @@ Resume_Subhrangsu/
 3. Open `index.html` in a browser
 4. Or visit the live GitHub Pages link
 
-## 👤 Author
-
-**Subhrangsu Bera**  
-Front-End Developer
