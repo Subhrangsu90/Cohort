@@ -32,6 +32,9 @@ Resume_Subhrangsu/
 
 ## 📷 Screenshots
 
+![Resume Homepage Screenshot](Resume_Subhrangsu/screenshot.png)
+
+🎥 **Demo Video:**  
 [Click here to watch the demo](Resume_Subhrangsu/demo.webm)
 
 ## 📌 Setup Instructions
