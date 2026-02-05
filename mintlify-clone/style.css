@@ -1,0 +1,138 @@
+@supports (color:lab(0% 0 0)) {
+  :root {
+    --color-background-main: lab(100% 0 0);
+    --color-background-invert: lab(2.42579% -.165291 -.470081);
+    --color-text-main: lab(2.42579% -.165291 -.470081);
+    --color-text-invert: lab(100% 0 0);
+    --color-text-soft: lab(2.42579% -.165291 -.470081 / .8);
+    --color-text-sub: lab(2.42579% -.165291 -.470081 / .6);
+    --color-muted: lab(2.42579% -.165291 -.470081 / .5);
+    --color-border-sub: lab(2.42579% -.165291 -.470081 / .07);
+    --color-background-soft: lab(2.42579% -.165291 -.470081 / .03);
+    --color-border-surface: lab(2.42579% -.165291 -.470081 / .05);
+    --color-border-soft: lab(2.42579% -.165291 -.470081 / .15);
+    --color-brand: lab(51.3415% -41.5657 15.3527);
+    --color-brand-light: lab(51.3415% -41.5657 15.3527);
+    --color-border-solid: lab(2.42579% -.165291 -.470081);
+    --color-muted-invert: lab(100% 0 0 / .5);
+  }
+}
+
+body {
+  background-color: var(--color-background-main);
+  color: var(--color-text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.container {
+  max-width: 65rem;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header background */
+.site-header {
+  backdrop-filter: blur(20px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+/* Navbar layout */
+.navbar {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Left side */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+}
+
+/* Logo */
+.logo {
+  height: 24px;
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #e6f4f8;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+/* Right side buttons */
+.auth-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+/* Contact button */
+.contact-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Primary CTA */
+.signup-btn {
+  background: white;
+  color: #0b4f6c;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signup-btn:hover {
+  background: #f0f9ff;
+}
+
+/* Hero section */
+main {
+  position: relative;
+  height: 80rem;
+}
+
+.background-image {
+  background-image: url(./bg-light.svg);
+  z-index: -1;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -10rem;
+}

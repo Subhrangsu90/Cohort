@@ -566,7 +566,7 @@ section {
     align-items: center;
     justify-content: center;
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
 }
 
 .date {
@@ -760,7 +760,7 @@ footer {
 }
 
 .footer-bottom .badge {
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
     padding: 4px 8px;
     border-radius: 6px;
     margin-left: 8px;
