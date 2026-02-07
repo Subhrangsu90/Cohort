@@ -58,6 +58,7 @@ jobs:
       - name: Prepare deploy folder
         run: |
           mkdir -p deploy
+          cp index.html deploy/index.html
           cp -r mintlify-clone/dist deploy/mintlify-clone
           cp -r cursor-clone/dist deploy/cursor-clone
           cp -r Resume_Subhrangsu deploy/Resume_Subhrangsu
