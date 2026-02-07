@@ -20,12 +20,12 @@
 
 body {
   background-color: var(--color-background-main);
-  color: var(--color-text-main);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--color-text-invert);
+  font-family: "inter", "inter Fallback";
   line-height: 1.6;
   margin: 0;
   padding: 0;
+
 }
 
 /* Container */
@@ -69,7 +69,7 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 24px;
+  gap: 10px;
   margin: 0;
   padding: 0;
 }
@@ -79,11 +79,15 @@ body {
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  opacity: 0.9;
+  padding: 0.2rem 0.75rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a:hover {
   opacity: 1;
+  background: rgb(255 255 255 / 9%);
 }
 
 /* Right side buttons */
@@ -97,7 +101,7 @@ body {
   background: rgba(255, 255, 255, 0.1);
   color: white;
   border: none;
-  padding: 10px 16px;
+  padding: 8px 16px;
   border-radius: 999px;
   font-size: 14px;
   cursor: pointer;
@@ -108,10 +112,10 @@ body {
   background: white;
   color: #0b4f6c;
   border: none;
-  padding: 10px 18px;
+  padding: 8px 18px;
   border-radius: 999px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -120,19 +124,141 @@ body {
 }
 
 /* Hero section */
-main {
+.hero-section {
   position: relative;
-  height: 80rem;
 }
 
 .background-image {
+  position: absolute;
+  inset: 0;
   background-image: url(./bg-light.svg);
-  z-index: -1;
-  background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: -1;
+  height: 100vh;
+  mask-image: linear-gradient(#000 0%, rgba(0, 0, 0, .99) 18.5%, rgba(0, 0, 0, .953) 34.3%, rgba(0, 0, 0, .894) 47.6%, rgba(0, 0, 0, .824) 58.5%, rgba(0, 0, 0, .74) 67.5%, rgba(0, 0, 0, .647) 74.7%, rgba(0, 0, 0, .55) 80.3%, rgba(0, 0, 0, .45) 84.7%, rgba(0, 0, 0, .353) 88%, rgba(0, 0, 0, .26) 90.5%, rgba(0, 0, 0, .176) 92.5%, rgba(0, 0, 0, .106) 94.2%, rgba(0, 0, 0, .047) 95.9%, rgba(0, 0, 0, .01) 97.7%, transparent 100%);
+}
+
+.hero-content {
+  padding: 100px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.announcement {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 4px;
+  border-radius: 999px;
+  background-color: #17141417;
+  color: white;
+  text-decoration: none;
+
+  font-weight: 500;
+  font-size: 14px;
+
+  transition: background 0.2s ease;
+}
+
+.announcement:hover {
+  background-color: #17141427;
+}
+
+.badge {
+  background-color: lab(51.3415% -41.5657 15.3527);
+  color: white;
+
+  padding: 2px 8px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.announcement p {
+  margin: 0;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin: 0 auto;
+  font-weight: 600;
+  line-height: 115%;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.hero-content>p {
+  margin: 0;
+  max-width: 32rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.hero-content form {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  padding: 4px;
   width: 100%;
-  height: 100%;
+  max-width: 24rem;
+  border: 1px solid rgba(255, 255, 255, 0.182);
+}
+
+.hero-content input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 4px 14px;
+  font-size: 1rem;
+  color: white;
+}
+
+.hero-content input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-content button {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: white;
+  color: #030709;
+  cursor: pointer;
+}
+
+.hero-image {
+  position: relative;
+}
+
+.hero-image img {
   position: absolute;
-  top: -10rem;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+.trusted-by {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
