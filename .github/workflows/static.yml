@@ -57,10 +57,11 @@ jobs:
       # =========================
       - name: Prepare deploy folder
         run: |
-          mkdir deploy
+          mkdir -p deploy
           cp -r mintlify-clone/dist deploy/mintlify-clone
           cp -r cursor-clone/dist deploy/cursor-clone
           cp -r Resume_Subhrangsu deploy/Resume_Subhrangsu
+
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
