@@ -131,7 +131,7 @@ body {
 .background-image {
   position: absolute;
   inset: 0;
-  background-image: url(./bg-light.svg);
+  background-image: url(/bg-light.svg);
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -1;

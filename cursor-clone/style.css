@@ -180,7 +180,7 @@ section {
 .demo-container {
     border: none;
     border-radius: 8px;
-    background-image: url(./demo-bg.webp);
+    background-image: url(/demo-bg.webp);
     background-size: cover;
     background-position: center;
     padding: 2rem;
@@ -295,7 +295,7 @@ section {
 
 .feature-card .card-right.v2 {
     grid-column: 1 / 17;
-    background-image: url(./featurs-card2.png);
+    background-image: url(/featurs-card2.png);
 }
 
 .feature-card .card-left {
@@ -341,7 +341,7 @@ section {
     grid-column-end: 25; */
     height: 70vh;
     min-height: 650px;
-    background-image: url(./feature-card-bg1.webp);
+    background-image: url(/feature-card-bg1.webp);
     background-size: cover;
     background-position: center;
     border-radius: 8px;
@@ -349,7 +349,7 @@ section {
 }
 
 .feature-card .card-right.v3 {
-    background-image: url(./feature-card3.webp);
+    background-image: url(/feature-card3.webp);
 }
 
 
