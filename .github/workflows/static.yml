@@ -57,10 +57,10 @@ jobs:
       # =========================
       - name: Prepare deploy folder
         run: |
-          mkdir -p deploy/Cohort
-          cp -r mintlify-clone/dist deploy/Cohort/mintlify-clone
-          cp -r cursor-clone/dist deploy/Cohort/cursor-clone
-          cp -r Resume_Subhrangsu deploy/Cohort/Resume_Subhrangsu
+          mkdir -p deploy
+          cp -r mintlify-clone/dist deploy/mintlify-clone
+          cp -r cursor-clone/dist deploy/cursor-clone
+          cp -r Resume_Subhrangsu deploy/Resume_Subhrangsu
 
 
       - name: Setup Pages
