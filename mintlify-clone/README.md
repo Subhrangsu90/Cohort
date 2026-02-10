@@ -13,7 +13,7 @@ A lightweight clone of the Mintlify landing page built for practice and layout e
 
 Open `index.html` directly in your browser, or run a simple HTTP server from the project root:
 
-Python 3:
+npm run:
 
 ```
 npm run dev
