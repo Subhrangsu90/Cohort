@@ -13,7 +13,7 @@ A lightweight clone of the Cursor landing page built for practice and layout exp
 
 Open `index.html` directly in your browser, or run a simple HTTP server from the project root:
 
-Or with npm (if project has a dev script):
+npm:
 
 ```
 npm run dev
