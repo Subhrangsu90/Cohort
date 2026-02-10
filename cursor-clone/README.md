@@ -13,12 +13,6 @@ A lightweight clone of the Cursor landing page built for practice and layout exp
 
 Open `index.html` directly in your browser, or run a simple HTTP server from the project root:
 
-Python 3:
-
-```
-python -m http.server 5173
-```
-
 Or with npm (if project has a dev script):
 
 ```
@@ -27,11 +21,10 @@ npm run dev
 
 Then open http://localhost:5173 in your browser.
 
-## Notes
+## Screenshots
 
-- Adjust `style.css` to tweak layout or spacing.
-- This project is for learning; no build step required.
+![Mintlify Clone Screenshot]()
 
 ## Live
 
-- Live demo: https://your-live-url.example
+- Live demo: https://cohort.subhrangsu.in/mintlify-clone/

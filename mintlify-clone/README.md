@@ -21,8 +21,10 @@ npm run dev
 
 Then open http://localhost:5173 in your browser.
 
-## Notes
+## Screenshots
+
+![Mintlify Clone Screenshot]()
 
 ## Live
 
-- Live demo: https://your-live-url.example
+- Live demo: https://cohort.subhrangsu.in/cursor-clone/
