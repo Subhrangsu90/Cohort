@@ -23,7 +23,7 @@ Then open http://localhost:5173 in your browser.
 
 ## Screenshots
 
-![Mintlify Clone Screenshot]()
+![Mintlify Clone Screenshot](https://github.com/Subhrangsu90/Cohort/blob/master/mintlify-clone/public/screencapture-mintlify-clone.png)
 
 ## Live
 
