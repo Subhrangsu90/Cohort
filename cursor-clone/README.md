@@ -27,4 +27,4 @@ Then open http://localhost:5173 in your browser.
 
 ## Live
 
-- Live demo: [https://cohort.subhrangsu.in/mintlify-clone](https://cohort.subhrangsu.in/mintlify-clone/)
+Live demo: [https://cohort.subhrangsu.in/cursor-clone](https://cohort.subhrangsu.in/cursor-clone/)
