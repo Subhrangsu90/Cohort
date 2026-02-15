@@ -1,258 +1,655 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
+		<meta charset="utf-8" />
 		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0" />
-		<title>Cohort | Project Portfolio</title>
-
-		<style>
-			:root {
-				--bg: #11100f;
-				--card: #110d0b;
-				--border: #4a372c;
-				--text: #fff3e4;
-				--muted: #d2b48c;
-				--accent: #b45309; /* saffron tone */
-				--hover: #b45309;
-			}
-
-			* {
-				margin: 0;
-				padding: 0;
-				box-sizing: border-box;
-			}
-
-			body {
-				font-family:
-					system-ui,
-					-apple-system,
-					sans-serif;
-				background: var(--bg);
-				color: var(--text);
-				padding: 60px 20px;
-				min-height: 100vh;
-			}
-
-			.container {
-				max-width: 1100px;
-				margin: 0 auto;
-			}
-
-			header {
-				text-align: center;
-				margin-bottom: 60px;
-			}
-
-			h1 {
-				font-size: 3rem;
-				font-weight: 700;
-				margin-bottom: 10px;
-				letter-spacing: -1px;
-			}
-
-			.subtitle {
-				color: var(--muted);
-				font-size: 1.1rem;
-			}
-
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-				gap: 28px;
-			}
-
-			.card {
-				background: var(--card);
-				border: 1px solid var(--border);
-				border-radius: 14px;
-				padding: 28px;
-				transition: 0.25s ease;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-			}
-
-			.card:hover {
-				border-color: var(--accent);
-			}
-
-			.icon {
-				width: 42px;
-				height: 42px;
-				margin-bottom: 20px;
-				fill: var(--accent);
-			}
-
-			.title {
-				font-size: 1.25rem;
-				font-weight: 600;
-				margin-bottom: 10px;
-			}
-
-			.desc {
-				font-size: 0.95rem;
-				color: var(--muted);
-				line-height: 1.6;
-				margin-bottom: 20px;
-			}
-
-			.btn {
-				display: inline-block;
-				padding: 10px 20px;
-				border-radius: 8px;
-				text-decoration: none;
-				font-weight: 600;
-				font-size: 0.9rem;
-				background: var(--accent);
-				color: white;
-				transition: 0.2s ease;
-				width: fit-content;
-			}
-
-			.btn:hover {
-				background: var(--hover);
-			}
-
-			footer {
-				margin-top: 70px;
-				text-align: center;
-				color: var(--muted);
-				font-size: 0.9rem;
-			}
-
-			@media (max-width: 600px) {
-				h1 {
-					font-size: 2.2rem;
+			content="width=device-width, initial-scale=1.0"
+			name="viewport" />
+		<title>ChaiCode WebDev Cohort 2026 | Technical Deep Dive</title>
+		<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&amp;family=Merriweather+Sans:wght@300;400;500;700&amp;display=swap"
+			rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+			rel="stylesheet" />
+		<script id="tailwind-config">
+			tailwind.config = {
+				darkMode: "class",
+				theme: {
+					extend: {
+						colors: {
+							primary: "#FB923C",
+							background: "#1A1D20",
+							"text-base": "#F8F8F8",
+							"card-bg": "rgba(255, 255, 255, 0.07)",
+							"border-dim": "rgba(251, 146, 60, 0.2)",
+						},
+						fontFamily: {
+							mono: ["IBM Plex Mono", "monospace"],
+							sans: ["Merriweather Sans", "sans-serif"],
+						},
+					},
+				},
+			};
+		</script>
+		<style type="text/tailwindcss">
+			@layer base {
+				body {
+					@apply bg-background text-text-base font-sans antialiased;
 				}
+				h1,
+				h2,
+				h3,
+				.font-tech {
+					@apply font-mono;
+				}
+			}
+			.console-glow {
+				text-shadow: 0 0 10px rgba(251, 146, 60, 0.4);
+			}
+			.custom-scrollbar::-webkit-scrollbar {
+				width: 6px;
+			}
+			.custom-scrollbar::-webkit-scrollbar-track {
+				background: #141619;
+			}
+			.custom-scrollbar::-webkit-scrollbar-thumb {
+				background: #2d3238;
+			}
+			.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+				background: #fb923c;
 			}
 		</style>
 	</head>
+	<body class="min-h-screen overflow-hidden">
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const sidebar = document.getElementById("sidebar");
+				const overlay = document.getElementById("overlay");
+				const menuBtn = document.getElementById("menuBtn");
+				const navLinks = sidebar.querySelectorAll("a");
 
-	<body>
-		<div class="container">
-			<header>
-				<h1>ChaiCode WebDev Cohort 2026</h1>
-				<p class="subtitle">Web Development Projects Portfolio</p>
-			</header>
+				function closeSidebar() {
+					sidebar.classList.add("-translate-x-full");
+					overlay.classList.add("hidden");
+				}
 
-			<div class="grid">
-				<!-- Cursor Clone -->
-				<div class="card">
-					<svg
-						class="icon"
-						viewBox="0 0 24 24">
-						<path d="M3 3l18 8-8 2-2 8-8-18z" />
-					</svg>
-					<div>
-						<div class="title">Cursor Clone</div>
-						<div class="desc">
-							Modern IDE interface recreation built using Vite
-							with responsive layout and performance optimization.
+				menuBtn.addEventListener("click", function () {
+					sidebar.classList.toggle("-translate-x-full");
+					overlay.classList.toggle("hidden");
+				});
+
+				overlay.addEventListener("click", closeSidebar);
+
+				navLinks.forEach((link) => {
+					link.addEventListener("click", closeSidebar);
+				});
+			});
+		</script>
+
+		<div class="grid lg:grid-cols-[320px_1fr] h-screen">
+			<!-- Mobile Overlay -->
+			<div
+				id="overlay"
+				class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+			<aside
+				id="sidebar"
+				class="fixed lg:static z-50 w-72 sm:w-80 h-screen bg-background border-r border-border-dim transform -translate-x-full lg:translate-x-0 transition-transform duration-300 flex flex-col">
+				<nav class="flex-grow p-6 overflow-y-auto custom-scrollbar">
+					<div class="mb-8">
+						<h4
+							class="text-[10px] font-mono text-primary/60 uppercase tracking-widest mb-4 px-2">
+							System Categories
+						</h4>
+						<ul class="space-y-1">
+							<li>
+								<a
+									class="flex items-center gap-3 px-3 py-2 rounded font-mono text-sm hover:bg-primary/10 hover:text-primary transition-all group"
+									href="#hero">
+									<span
+										class="text-xs opacity-40 group-hover:opacity-100"
+										>00</span
+									>
+									Core_Overview
+								</a>
+							</li>
+							<li>
+								<a
+									class="flex items-center gap-3 px-3 py-2 rounded font-mono text-sm hover:bg-primary/10 hover:text-primary transition-all group"
+									href="#cursor-clone">
+									<span
+										class="text-xs opacity-40 group-hover:opacity-100"
+										>01</span
+									>
+									Cursor_Clone
+								</a>
+							</li>
+							<li>
+								<a
+									class="flex items-center gap-3 px-3 py-2 rounded font-mono text-sm hover:bg-primary/10 hover:text-primary transition-all group"
+									href="#mintlify-clone">
+									<span
+										class="text-xs opacity-40 group-hover:opacity-100"
+										>02</span
+									>
+									Mintlify_Clone
+								</a>
+							</li>
+							<li>
+								<a
+									class="flex items-center gap-3 px-3 py-2 rounded font-mono text-sm hover:bg-primary/10 hover:text-primary transition-all group"
+									href="#resume">
+									<span
+										class="text-xs opacity-40 group-hover:opacity-100"
+										>03</span
+									>
+									Digital_Resume
+								</a>
+							</li>
+							<li>
+								<a
+									class="flex items-center gap-3 px-3 py-2 rounded font-mono text-sm hover:bg-primary/10 hover:text-primary transition-all group"
+									href="#blogs">
+									<span
+										class="text-xs opacity-40 group-hover:opacity-100"
+										>04</span
+									>
+									Tech_Logs
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="mb-8">
+						<h4
+							class="text-[10px] font-mono text-primary/60 uppercase tracking-widest mb-4 px-2">
+							Protocols
+						</h4>
+						<div class="space-y-4 px-2">
+							<div class="flex flex-col gap-1">
+								<span class="text-xs text-text-base/40"
+									>Mentorship</span
+								>
+								<span
+									class="text-xs font-mono text-text-base/80"
+									>Hitesh Choudhary</span
+								>
+								<span
+									class="text-[10px] font-mono text-primary/50"
+									>@Hiteshdotcom</span
+								>
+							</div>
+							<div class="flex flex-col gap-1">
+								<span class="text-xs text-text-base/40"
+									>Architecture</span
+								>
+								<span
+									class="text-xs font-mono text-text-base/80"
+									>Piyush Garg</span
+								>
+								<span
+									class="text-[10px] font-mono text-primary/50"
+									>@piyushgarg_dev</span
+								>
+							</div>
 						</div>
 					</div>
-					<a
-						href="./cursor-clone/"
-						class="btn"
-						>View Project</a
-					>
+				</nav>
+				<div class="p-6 border-t border-border-dim bg-white/5">
+					<button
+						class="w-full bg-primary text-background font-mono text-xs font-bold py-3 rounded flex items-center justify-center gap-2 hover:bg-primary/90 transition-all shadow-[0_0_15px_rgba(251,146,60,0.2)]">
+						<span class="material-symbols-outlined text-sm"
+							>connect_without_contact</span
+						>
+						INITIATE_CONTACT
+					</button>
 				</div>
-
-				<!-- Mintlify Clone -->
-				<div class="card">
-					<svg
-						class="icon"
-						viewBox="0 0 24 24">
-						<path d="M4 4h16v2H4zm0 6h16v2H4zm0 6h10v2H4z" />
-					</svg>
-					<div>
-						<div class="title">Mintlify Clone</div>
-						<div class="desc">
-							Documentation-style UI with modern layout patterns
-							and clean typography.
+			</aside>
+			<div class="flex flex-col h-screen">
+				<header
+					class="border-b border-border-dim flex items-center justify-between lg:p-0 px-6 py-4">
+					<!-- Mobile Menu Button -->
+					<button
+						id="menuBtn"
+						class="lg:hidden text-primary">
+						<span class="material-symbols-outlined">menu</span>
+					</button>
+					<div
+						class="p-4 flex-1 lg:flex items-center justify-between">
+						<div class="flex items-center gap-3">
+							<div
+								class="w-8 h-8 rounded bg-primary flex items-center justify-center text-background shadow-[0_0_15px_rgba(251,146,60,0.3)]">
+								<span
+									class="material-symbols-outlined font-bold text-xl"
+									>terminal</span
+								>
+							</div>
+							<span
+								class="font-mono font-bold text-lg tracking-tight text-primary"
+								>CHAICODE.SYS</span
+							>
 						</div>
+						<p
+							class="text-[10px] font-mono text-text-base/60 uppercase tracking-widest leading-tight">
+							WebDev Cohort 2026<br />
+							Root Access: Subhrangsu
+						</p>
 					</div>
-					<a
-						href="./mintlify-clone/"
-						class="btn"
-						>View Project</a
-					>
-				</div>
-
-				<!-- Resume -->
-				<div class="card">
-					<svg
-						class="icon"
-						viewBox="0 0 24 24">
-						<path
-							d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm-7 9c0-3.9 3.1-7 7-7s7 3.1 7 7" />
-					</svg>
-					<div>
-						<div class="title">Resume</div>
-						<div class="desc">
-							Personal portfolio resume site showcasing
-							experience, skills, and projects.
+				</header>
+				<main
+					class="flex-1 overflow-y-auto custom-scrollbar bg-background">
+					<section
+						class="min-h-[70vh] flex flex-col justify-center px-12 lg:px-24 py-20 border-b border-border-dim relative overflow-hidden"
+						id="hero">
+						<div
+							class="absolute inset-0 opacity-[0.05] pointer-events-none"
+							style="
+								background-image: radial-gradient(
+									#f8f8f8 0.5px,
+									transparent 0.5px
+								);
+								background-size: 24px 24px;
+							"></div>
+						<div class="relative z-10 max-w-4xl">
+							<div
+								class="inline-block px-2 py-1 bg-primary/10 border border-primary/20 text-primary text-[10px] font-mono mb-6 uppercase tracking-widest">
+								Status: Production_Ready [v2.0.26]
+							</div>
+							<h1
+								class="text-5xl md:text-7xl font-bold text-text-base mb-6 leading-tight">
+								ChaiCode
+								<span class="text-primary">WebDev</span><br />
+								<span class="text-text-base/50"
+									>Cohort 2026</span
+								>
+							</h1>
+							<p
+								class="text-xl text-text-base/70 max-w-2xl leading-relaxed mb-10 font-sans">
+								A technical deep dive into the engineering
+								practices of the modern web. Focused on
+								scalability, performance patterns, and clean
+								architecture under the guidance of top-tier
+								industry mentors.
+							</p>
+							<div
+								class="flex items-center gap-6 font-mono text-sm">
+								<div class="flex items-center gap-2">
+									<span class="text-primary">$</span>
+									<span class="text-text-base/80"
+										>npm init cohort --fullstack</span
+									>
+								</div>
+							</div>
 						</div>
+					</section>
+					<div
+						class="max-w-5xl mx-auto px-12 lg:px-24 py-20 space-y-32">
+						<article
+							class="group"
+							id="cursor-clone">
+							<div class="flex items-center gap-4 mb-8">
+								<span class="font-mono text-primary text-sm"
+									>01.</span
+								>
+								<h2
+									class="text-3xl font-bold text-text-base group-hover:text-primary transition-colors">
+									Cursor Clone
+								</h2>
+								<div class="h-px flex-grow bg-border-dim"></div>
+								<span
+									class="font-mono text-[10px] text-text-base/40 uppercase tracking-widest"
+									>Vite / TypeScript / Tailwind</span
+								>
+							</div>
+							<div class="grid lg:grid-cols-12 gap-12">
+								<div class="lg:col-span-7">
+									<div
+										class="aspect-video rounded border border-border-dim overflow-hidden bg-black/40 mb-8">
+										<img
+											alt="Code Editor Interface"
+											class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700 grayscale-[0.5] group-hover:grayscale-0"
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1n9kmvFEOcrj3RIfP647R9hPaflRCUdGhpCTaSkXcZZRZyLbgwAWLH7sQsGOr68QqrBDv-SbNjwbxIx6tM68WONj7xqrGQ7ZpgUBK2DB_klKKQWyLDWymK9awDTx-52fZHijEZ3dbJrxZ2dTyoAZe1oA-rYkFYY8489uUsTG760QzAw8anvE1sdo7fiQMzT40ihrEg8p5ONTv1OcgpFZuflAFGPRpOsp9Y1SW3NleWLZf9rs8VFQZcsHCk2Q00biEMzpcOjBq6FY" />
+									</div>
+									<div class="flex gap-4">
+										<a
+											class="flex-1 border border-primary/30 bg-primary/10 text-primary font-mono text-xs py-3 text-center rounded hover:bg-primary/20 transition-all"
+											href="./cursor-clone/"
+											target="_blank"
+											>VIEW_DEPLOYMENT</a
+										>
+										<a
+											class="flex-1 border border-border-dim text-text-base/60 font-mono text-xs py-3 text-center rounded hover:border-primary/40 hover:text-text-base transition-all"
+											href="https://github.com/Subhrangsu90/Cohort/tree/master/cursor-clone"
+											target="_blank"
+											>GITHUB_REPO</a
+										>
+									</div>
+								</div>
+								<div
+									class="lg:col-span-5 flex flex-col justify-center">
+									<div class="prose prose-invert max-w-none">
+										<p
+											class="text-text-base/70 font-sans leading-relaxed mb-6">
+											A high-performance IDE recreation
+											that focuses on the architectural
+											challenges of building complex UI
+											trees. Implements a custom file
+											explorer and terminal simulation
+											using modern React patterns.
+										</p>
+										<div
+											class="p-6 bg-card-bg border-l-2 border-primary rounded-r">
+											<h4
+												class="text-xs font-mono text-primary uppercase tracking-widest mb-3">
+												Key Learnings
+											</h4>
+											<ul
+												class="text-sm font-sans space-y-2 text-text-base/80 list-disc list-inside marker:text-primary">
+												<li>
+													Virtualized list rendering
+													for large file structures
+												</li>
+												<li>
+													Custom context providers for
+													global editor state
+												</li>
+												<li>
+													Real-time syntax
+													highlighting optimization
+												</li>
+												<li>
+													Responsive split-pane window
+													management
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article
+							class="group"
+							id="mintlify-clone">
+							<div class="flex items-center gap-4 mb-8">
+								<span class="font-mono text-primary text-sm"
+									>02.</span
+								>
+								<h2
+									class="text-3xl font-bold text-text-base group-hover:text-primary transition-colors">
+									Mintlify Clone
+								</h2>
+								<div class="h-px flex-grow bg-border-dim"></div>
+								<span
+									class="font-mono text-[10px] text-text-base/40 uppercase tracking-widest"
+									>Next.js / MDX / Radix UI</span
+								>
+							</div>
+							<div class="grid lg:grid-cols-12 gap-12">
+								<div class="lg:col-span-7 lg:order-last">
+									<div
+										class="aspect-video rounded border border-border-dim overflow-hidden bg-black/40 mb-8">
+										<img
+											alt="Documentation UI"
+											class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700 grayscale-[0.5] group-hover:grayscale-0"
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSvH0KnSdcF_wSkoJXB_d9Att974XdSFkDD2sGh7D4EcBR5KsD0m0g8L5zCzHHic5XTZrmlPwrSVQu3sGW6JpZeMpaovePpBt8AffMDfWGfacey6Yj0WcmpKvtMRd9ZksS0PxaJzhY25AprLqmOIJ90ToWOsq865Zk0Tj8gHF7CNtXbJfIPx0SAuckp8x1akDPYdEoZcM7a-pTABg_PeE0JmzkPNIKo4K9KNDWOOGr8MAIAhz-Py6POhi2htGr9pbvBnKNUXZmFII" />
+									</div>
+									<div class="flex gap-4">
+										<a
+											class="flex-1 border border-primary/30 bg-primary/10 text-primary font-mono text-xs py-3 text-center rounded hover:bg-primary/20 transition-all"
+											href="./mintlify-clone/"
+											target="_blank"
+											>VIEW_DEPLOYMENT</a
+										>
+										<a
+											class="flex-1 border border-border-dim text-text-base/60 font-mono text-xs py-3 text-center rounded hover:border-primary/40 hover:text-text-base transition-all"
+											href="https://github.com/Subhrangsu90/Cohort/tree/master/mintlify-clone"
+											target="_blank"
+											>GITHUB_REPO</a
+										>
+									</div>
+								</div>
+								<div
+									class="lg:col-span-5 flex flex-col justify-center">
+									<div class="prose prose-invert max-w-none">
+										<p
+											class="text-text-base/70 font-sans leading-relaxed mb-6">
+											An exploration into technical
+											documentation architecture, focusing
+											on MDX integration and hierarchical
+											content navigation. Prioritizes
+											accessibility and reading
+											experience.
+										</p>
+										<div
+											class="p-6 bg-card-bg border-l-2 border-primary rounded-r">
+											<h4
+												class="text-xs font-mono text-primary uppercase tracking-widest mb-3">
+												Key Learnings
+											</h4>
+											<ul
+												class="text-sm font-sans space-y-2 text-text-base/80 list-disc list-inside marker:text-primary">
+												<li>
+													Dynamic MDX content
+													hydration
+												</li>
+												<li>
+													Recursive navigation menu
+													logic
+												</li>
+												<li>
+													Algolia-based search
+													implementation patterns
+												</li>
+												<li>
+													Advanced typography scaling
+													for technical docs
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article
+							class="group"
+							id="resume">
+							<div class="flex items-center gap-4 mb-8">
+								<span class="font-mono text-primary text-sm"
+									>03.</span
+								>
+								<h2
+									class="text-3xl font-bold text-text-base group-hover:text-primary transition-colors">
+									Digital Resume
+								</h2>
+								<div class="h-px flex-grow bg-border-dim"></div>
+								<span
+									class="font-mono text-[10px] text-text-base/40 uppercase tracking-widest"
+									>Astro / Tailwind / Framer</span
+								>
+							</div>
+							<div class="grid lg:grid-cols-12 gap-12">
+								<div class="lg:col-span-7">
+									<div
+										class="aspect-video rounded border border-border-dim overflow-hidden bg-black/40 mb-8">
+										<img
+											alt="Portfolio Site"
+											class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700 grayscale-[0.5] group-hover:grayscale-0"
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuA81dUoqrOhTis2cj-sdihiIKCCce0id59UF5vP_Vz4y0u69MhQzBE2V3xvqxACd8LkqdpHhMEBHGwRieJey-3FQp9OGLyb-3s1L0F6j4qX4mXYWjOzHEuVo4IriZ3E6ehSQbnqWFjxkpSM2RCwHkoU5YM0cFz1IGiQ0Ckg3GstwXY89KBMmzZVB2EwQAhOqdS6wwlZW74FQ1ys_3VzczcYDdGaYIm9Yh7__7LYAHyX4_u4lGQcM9BKAZnAcB4yOZdCmO9kkM_6Eoc" />
+									</div>
+									<div class="flex gap-4">
+										<a
+											class="flex-1 border border-primary/30 bg-primary/10 text-primary font-mono text-xs py-3 text-center rounded hover:bg-primary/20 transition-all"
+											href="./Resume_Subhrangsu/"
+											target="_blank"
+											>VIEW_DEPLOYMENT</a
+										>
+										<a
+											class="flex-1 border border-border-dim text-text-base/60 font-mono text-xs py-3 text-center rounded hover:border-primary/40 hover:text-text-base transition-all"
+											href="https://github.com/Subhrangsu90/Cohort/tree/master/Resume_Subhrangsu"
+											target="_blank"
+											>GITHUB_REPO</a
+										>
+									</div>
+								</div>
+								<div
+									class="lg:col-span-5 flex flex-col justify-center">
+									<div class="prose prose-invert max-w-none">
+										<p
+											class="text-text-base/70 font-sans leading-relaxed mb-6">
+											A personal identity platform
+											optimized for technical recruitment.
+											Built with a focus on web vitals,
+											SEO, and ATS-friendly content
+											structures.
+										</p>
+										<div
+											class="p-6 bg-card-bg border-l-2 border-primary rounded-r">
+											<h4
+												class="text-xs font-mono text-primary uppercase tracking-widest mb-3">
+												Key Learnings
+											</h4>
+											<ul
+												class="text-sm font-sans space-y-2 text-text-base/80 list-disc list-inside marker:text-primary">
+												<li>
+													Static site generation (SSG)
+													for zero-latency loads
+												</li>
+												<li>
+													Microdata and JSON-LD for
+													rich search results
+												</li>
+												<li>
+													Print-optimized CSS layouts
+												</li>
+												<li>
+													Performance metrics
+													monitoring via Lighthouse
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article
+							class="group pb-20"
+							id="blogs">
+							<div class="flex items-center gap-4 mb-8">
+								<span class="font-mono text-primary text-sm"
+									>04.</span
+								>
+								<h2
+									class="text-3xl font-bold text-text-base group-hover:text-primary transition-colors">
+									Tech Logs
+								</h2>
+								<div class="h-px flex-grow bg-border-dim"></div>
+								<span
+									class="font-mono text-[10px] text-text-base/40 uppercase tracking-widest"
+									>Ghost CMS / React / Node.js</span
+								>
+							</div>
+							<div class="grid lg:grid-cols-12 gap-12">
+								<div class="lg:col-span-7 lg:order-last">
+									<div
+										class="aspect-video rounded border border-border-dim overflow-hidden bg-black/40 mb-8">
+										<img
+											alt="Technical Writing"
+											class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700 grayscale-[0.5] group-hover:grayscale-0"
+											src="https://lh3.googleusercontent.com/aida-public/AB6AXuARu3F49PnV9D3ByEvzqGUmSVnM8GqCiTi5fJInGqDQ-alUUqcWoVHz8-eQivD7O-I1Gnvs5zr3XstTKpz6zkpptb7JzaOrWpVLkr4JjGGIxLgJYlCesN75W0kciA5F40yiZppVBnLQ4UB9rlOw6V_h_xEoLd8zZbJvN45iWtvwjUYafWjg-wxORKEpLMOaPwmgWbeEaBAQdpU0LujNGC0cEZPSvfT7NKjFkGcmWaSCILThDmMnfjJirINYCpZhrKpUZkc5Nm6--Og" />
+									</div>
+									<div class="flex gap-4">
+										<a
+											class="flex-1 border border-primary/30 bg-primary/10 text-primary font-mono text-xs py-3 text-center rounded hover:bg-primary/20 transition-all"
+											href="https://subhrangsu.hashnode.dev/"
+											target="_blank"
+											>READ_ARTICLES</a
+										>
+										<a
+											class="flex-1 border border-border-dim text-text-base/60 font-mono text-xs py-3 text-center rounded hover:border-primary/40 hover:text-text-base transition-all"
+											href=""
+											>RSS_FEED</a
+										>
+									</div>
+								</div>
+								<div
+									class="lg:col-span-5 flex flex-col justify-center">
+									<div class="prose prose-invert max-w-none">
+										<p
+											class="text-text-base/70 font-sans leading-relaxed mb-6">
+											A knowledge base containing deep
+											dives into complex technical topics.
+											Designed to showcase technical
+											communication skills and conceptual
+											understanding of backend
+											architecture.
+										</p>
+										<div
+											class="p-6 bg-card-bg border-l-2 border-primary rounded-r">
+											<h4
+												class="text-xs font-mono text-primary uppercase tracking-widest mb-3">
+												Key Learnings
+											</h4>
+											<ul
+												class="text-sm font-sans space-y-2 text-text-base/80 list-disc list-inside marker:text-primary">
+												<li>
+													Headless CMS integration
+													patterns
+												</li>
+												<li>
+													Caching strategies for
+													dynamic content
+												</li>
+												<li>
+													Interactive code playground
+													embedding
+												</li>
+												<li>
+													Effective technical
+													narrative structures
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
 					</div>
-					<a
-						href="./Resume_Subhrangsu/"
-						class="btn"
-						>View Resume</a
-					>
-				</div>
-
-				<!-- Blogs -->
-				<div class="card">
-					<svg
-						class="icon"
-						viewBox="0 0 24 24"
-						xmlns="http://www.w3.org/2000/svg">
-						<path
-							d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"
-							fill="none"
-							stroke="#d97706"
-							stroke-width="1.8" />
-						<path
-							d="M14 2v6h6"
-							fill="none"
-							stroke="#d97706"
-							stroke-width="1.8" />
-						<line
-							x1="8"
-							y1="13"
-							x2="16"
-							y2="13"
-							stroke="#d97706"
-							stroke-width="1.6" />
-						<line
-							x1="8"
-							y1="17"
-							x2="16"
-							y2="17"
-							stroke="#d97706"
-							stroke-width="1.6" />
-					</svg>
-
-					<div>
-						<div class="title">Blogs</div>
-						<div class="desc">
-							Collection of written articles and assignments
-							exploring web development concepts.
+					<footer
+						class="border-t border-border-dim bg-white/5 py-12 px-12 lg:px-24">
+						<div
+							class="flex flex-col md:flex-row justify-between items-center gap-8">
+							<div class="text-left">
+								<p
+									class="font-mono text-xs text-text-base/40 mb-2">
+									© 2026 SUBHRANGSU.PORTFOLIO
+								</p>
+								<p
+									class="text-[10px] text-text-base/50 font-sans">
+									ChaiCode WebDev Cohort 2026 • Built with
+									HTML, Tailwind CSS &amp; IBM Plex Mono
+								</p>
+							</div>
+							<div class="flex gap-6">
+								<a
+									class="text-text-base/60 hover:text-primary font-mono text-xs transition-colors underline underline-offset-4 decoration-border-dim hover:decoration-primary"
+									href="https://github.com/Subhrangsu90"
+									>GITHUB</a
+								>
+								<a
+									class="text-text-base/60 hover:text-primary font-mono text-xs transition-colors underline underline-offset-4 decoration-border-dim hover:decoration-primary"
+									href="https://www.linkedin.com/in/subhrangsu-bera/"
+									>LINKEDIN</a
+								>
+								<a
+									class="text-text-base/60 hover:text-primary font-mono text-xs transition-colors underline underline-offset-4 decoration-border-dim hover:decoration-primary"
+									href="https://x.com/SubhrangsuBera"
+									>X_TWITTER</a
+								>
+							</div>
 						</div>
-					</div>
-					<a
-						href="https://subhrangsu.hashnode.dev/"
-						class="btn"
-						>View Blogs</a
-					>
-				</div>
+					</footer>
+				</main>
 			</div>
-
-			<footer>
-				© 2026 Subhrangsu • ChaiCode WebDev Cohort 2026 • Built with
-				HTML & CSS
-			</footer>
 		</div>
 	</body>
 </html>
